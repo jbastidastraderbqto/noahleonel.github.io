@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noah Leonel - Mi Primer Álbum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <style>
+        .font-luxury { font-family: 'Pinyon Script', cursive; }
+        .font-main { font-family: 'Montserrat', sans-serif; }
+        
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('img/fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(240, 249, 255, 0.95) 90%);
+            z-index: -1;
+        }
+
+        .photo-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        .local-video-wrapper {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.2);
+            border: 8px solid white;
+        }
+
+        video {
+            width: 100%;
+            display: block;
+            outline: none;
+        }
+
+        /* Estilos para el botón de música */
+        .music-control {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            cursor: pointer;
+        }
+        
+        .music-icon-ring {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0; }
+            100% { transform: scale(0.8); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="font-main overflow-x-hidden">
+
+    <!-- Control de Música -->
+    <div class="music-control" onclick="toggleMusic()">
+        <div class="relative flex items-center justify-center w-14 h-14 bg-white rounded-full shadow-2xl border border-blue-100">
+            <div id="musicRing" class="music-icon-ring absolute inset-0 bg-blue-400 rounded-full"></div>
+            <span id="musicEmoji" class="text-2xl relative z-10">🎵</span>
+        </div>
+        <audio id="bgMusic" loop>
+            <!-- Cambia 'audio/cuna.mp3' por la ruta de tu archivo de música -->
+            <source src="audio/music_for_video-kids-song-118818.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+
+    <!-- Header / Hero Section -->
+    <header class="hero-section text-center px-4">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        
+        <!-- Decoración -->
+        <div class="absolute top-20 left-10 text-5xl floating opacity-60 hidden lg:block">🧸</div>
+        <div class="absolute top-40 right-20 text-5xl floating opacity-60 hidden lg:block" style="animation-delay: 2s;">🍼</div>
+
+        <div class="relative z-10 animate__animated animate__zoomIn">
+            <div class="inline-block px-4 py-1 border-y border-blue-300 mb-6">
+                <span class="text-blue-800 text-sm md:text-lg font-light tracking-[0.3em] uppercase">Bienvenido al Mundo</span>
+            </div>
+            
+            <h1 class="text-7xl md:text-[10rem] font-luxury text-blue-900 drop-shadow-sm leading-tight mb-4">
+                Noah Leonel
+            </h1>
+            
+            <p class="text-blue-800/80 text-lg md:text-2xl max-w-2xl mx-auto italic font-light mb-10">
+                "Nacido para ser amado por siempre."
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-6 animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="bg-white/70 backdrop-blur-md px-6 py-4 rounded-3xl shadow-xl border border-white">
+                    <span class="block text-3xl font-bold text-blue-600">30</span>
+                    <span class="text-xs uppercase tracking-widest text-gray-500 font-semibold">Marzo 2026</span>
+                </div>
+                <div class="bg-white/70 backdrop-blur-md px-6 py-4 rounded-3xl shadow-xl border border-white">
+                    <span class="block text-3xl font-bold text-blue-600">3.5</span>
+                    <span class="text-xs uppercase tracking-widest text-gray-500 font-semibold">Kilogramos</span>
+                </div>
+                <div class="bg-white/70 backdrop-blur-md px-6 py-4 rounded-3xl shadow-xl border border-white">
+                    <span class="block text-3xl font-bold text-blue-600">49</span>
+                    <span class="text-xs uppercase tracking-widest text-gray-500 font-semibold">Centímetros</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <svg class="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </header>
+
+    
+
+    <!-- Galería de Fotos -->
+    <section class="py-24 px-4 max-w-6xl mx-auto">
+        <div class="flex flex-col items-center mb-16">
+            <h3 class="text-5xl font-luxury text-blue-900">Mi llegada al mundo</h3>
+            <div class="w-20 h-1 bg-blue-400 mt-4 rounded-full opacity-30"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="photo-card bg-white p-4 rounded-3xl shadow-xl">
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-gray-50">
+                    <img src="img/1.jpeg" alt="Noah" class="w-full h-full object-cover">
+                </div>
+                <p class="text-center mt-4 font-luxury text-2xl text-blue-800">Llegando al mundo</p>
+            </div>
+            <div class="photo-card bg-white p-4 rounded-3xl shadow-xl lg:mt-16">
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-gray-50">
+                    <img src="img/2.jpeg" alt="Noah" class="w-full h-full object-cover">
+                </div>
+                <p class="text-center mt-4 font-luxury text-2xl text-blue-800">Pequeños milagros</p>
+            </div>
+            <div class="photo-card bg-white p-4 rounded-3xl shadow-xl">
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-gray-50">
+                    <img src="img/3.jpeg" alt="Noah" class="w-full h-full object-cover">
+                </div>
+                <p class="text-center mt-4 font-luxury text-2xl text-blue-800">Amor infinito</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 max-w-6xl mx-auto">
+        <div class="flex flex-col items-center mb-16">
+            <h3 class="text-5xl font-luxury text-blue-900">Conociendo a mis Padres</h3>
+            <div class="w-20 h-1 bg-blue-400 mt-4 rounded-full opacity-30"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+            <div class="photo-card bg-white p-4 rounded-3xl shadow-xl">
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-gray-50">
+                    <img src="img/4.jpeg" alt="Noah" class="w-full h-full object-cover">
+                </div>
+                <p class="text-center mt-4 font-luxury text-2xl text-blue-800">Con mi mami</p>
+            </div>
+            <div class="photo-card bg-white p-4 rounded-3xl shadow-xl">
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-gray-50">
+                    <img src="img/5.jpg" alt="Noah" class="w-full h-full object-cover">
+                </div>
+                <p class="text-center mt-4 font-luxury text-2xl text-blue-800">Con mi papi</p>
+            </div>
+           
+            
+        </div>
+    </section>
+
+    <!-- Galería de Fotos -->
+    <section class="py-24 px-4 max-w-6xl mx-auto">
+        <div class="flex flex-col items-center mb-16">
+            <h3 class="text-5xl font-luxury text-blue-900">Mis Abuelitas</h3>
+            <div class="w-20 h-1 bg-blue-400 mt-4 rounded-full opacity-30"></div>
+        </div>
+
+        <div class="photo-card bg-white p-4 rounded-3xl shadow-xl lg:mt-16">
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-gray-50">
+                    <img src="img/6.jpg" alt="Noah" class="w-full h-full object-cover">
+                </div>
+                <p class="text-center mt-4 font-luxury text-2xl text-blue-800">Amor de abuelas</p>
+            </div>
+    </section>
+
+
+
+
+    <!-- Galería de Fotos -->
+    <section class="py-24 px-4 max-w-6xl mx-auto">
+        <div class="flex flex-col items-center mb-16">
+            <h3 class="text-5xl font-luxury text-blue-900">Robando suspiros...</h3>
+            <div class="w-20 h-1 bg-blue-400 mt-4 rounded-full opacity-30"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="photo-card bg-white p-4 rounded-3xl shadow-xl">
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-gray-50">
+                    <img src="img/7.jpg" alt="Noah" class="w-full h-full object-cover">
+                </div>
+                <p class="text-center mt-4 font-luxury text-2xl text-blue-800">Feliz</p>
+            </div>
+            <div class="photo-card bg-white p-4 rounded-3xl shadow-xl lg:mt-16">
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-gray-50">
+                    <img src="img/8.jpg" alt="Noah" class="w-full h-full object-cover">
+                </div>
+                <p class="text-center mt-4 font-luxury text-2xl text-blue-800">Quiero....</p>
+            </div>
+            <div class="photo-card bg-white p-4 rounded-3xl shadow-xl">
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-gray-50">
+                    <img src="img/9.jpg" alt="Noah" class="w-full h-full object-cover">
+                </div>
+                <p class="text-center mt-4 font-luxury text-2xl text-blue-800">Teticaaaaaa....</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Sección de Video Personal -->
+    <section class="py-24 px-4 bg-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h3 class="text-5xl font-luxury text-blue-900 mb-4">Mi primer llanto</h3>
+            <p class="text-gray-400 mb-12 uppercase tracking-widest text-xs">Video grabado por mi tio Joel</p>
+            
+            <div class="local-video-wrapper">
+                <video controls poster="https://images.unsplash.com/photo-1519689689353-897c113a5b51?auto=format&fit=crop&q=80&w=800">
+                    <source src="img/WhatsApp Video 2026-03-30 at 2.05.22 PM.mp4" type="video/mp4">
+                    Tu navegador no soporta videos integrados.
+                </video>
+            </div>
+            
+            <div class="mt-12 inline-flex items-center gap-4 text-blue-400">
+                <span class="h-px w-12 bg-blue-100"></span>
+                <span class="font-luxury text-3xl text-blue-800">Inmortalizando momentos</span>
+                <span class="h-px w-12 bg-blue-100"></span>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Sección de Mensajes vía WhatsApp -->
+    <section class="bg-slate-900 py-24 px-4 text-white relative">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h3 class="text-5xl font-luxury text-blue-300">Bendiciones para Noah</h3>
+                <p class="mt-6 text-slate-400 font-light max-w-md mx-auto italic">
+                    Tu mensaje llegará directamente al WhatsApp de sus padres para ser atesorado.
+                </p>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-xl p-8 md:p-12 rounded-[3rem] border border-white/10 shadow-3xl">
+                <form id="whatsappForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-widest text-blue-300 font-bold ml-2">Tu Nombre</label>
+                            <input type="text" id="visitorName" placeholder="Ej: Abuela María" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition placeholder-slate-600" required>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-widest text-blue-300 font-bold ml-2">Parentesco</label>
+                            <input type="text" id="relation" placeholder="Ej: Tío, Primo, Amigo" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition placeholder-slate-600">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase tracking-widest text-blue-300 font-bold ml-2">Tu Mensaje</label>
+                        <textarea id="visitorMessage" rows="4" placeholder="Escribe tus deseos más dulces..." class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition placeholder-slate-600" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white font-bold py-5 rounded-2xl transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-4 shadow-2xl shadow-green-900/20">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.038 3.284l-.54 1.964 2.009-.527c.974.527 1.995.807 3.261.807 3.181 0 5.767-2.586 5.768-5.766.001-3.18-2.586-5.768-5.768-5.768zm3.393 8.24s-.301-.15-1.779-.877c-.276-.1-.477-.15-.677.15-.2.299-.777.977-.952 1.176-.176.199-.351.224-.652.075-.301-.15-1.267-.467-2.414-1.492-.893-.796-1.495-1.779-1.671-2.079-.176-.3-.019-.462.13-.611.134-.133.301-.351.451-.526.15-.175.2-.299.301-.498.101-.199.05-.374-.025-.525-.075-.15-.677-1.631-.927-2.23-.243-.584-.49-.505-.677-.514-.175-.008-.376-.01-.577-.01-.201 0-.527.075-.802.375-.276.3-.1.73-.1.73 0 .73-.1.73.1 1.73 1.053 2.155 1.053 4.108 3.033 5.306 4.887 2.456 1.488 2.048 2.224 2.846 2.016.51.522.611 1.02.611 1.02.477.124 1.254.124 1.63-.05 1.03-.474 1.206-.499 1.457-.749.251-.25.401-.549.401-1.049-.001-.125-.026-.225-.101-.3zm-1.673 3.513c-.176.15-.351.2-.527.2-.176 0-.351-.05-.527-.2-.176-.15-.351-.3-.527-.451-.176-.15-.351-.3-.527-.451.176-.15.351-.3.527-.451.176-.15.351-.2.527-.2.176 0 .351.05.527.2.176.15.351.3.527.451.176.15.351.3.527.451.176.15.351.3.527.451z"/></svg>
+                        Enviar Bendición vía WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center text-slate-500 bg-white">
+        <p class="font-luxury text-4xl text-blue-900 mb-4">Noah Leonel</p>
+        <p class="tracking-[0.2em] uppercase text-[10px] mb-2 font-bold text-blue-400">Nuestro Gran Milagro</p>
+        <p class="text-xs">30 de Marzo de 2026 • Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        // Lógica de Música
+        const music = document.getElementById('bgMusic');
+        const musicEmoji = document.getElementById('musicEmoji');
+        const musicRing = document.getElementById('musicRing');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicEmoji.innerText = "🎵";
+                musicRing.classList.add('hidden');
+            } else {
+                music.play();
+                musicEmoji.innerText = "🔇";
+                musicRing.classList.remove('hidden');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // WhatsApp
+        const form = document.getElementById('whatsappForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('visitorName').value;
+            const relation = document.getElementById('relation').value;
+            const text = document.getElementById('visitorMessage').value;
+            const phone = "584245388701";
+            const message = `¡Hola familia de Noah Leonel! 👋\n\n` +
+                            `Soy *${name}* ${relation ? '(' + relation + ')' : ''}.\n\n` +
+                            `Mensaje para el bebé: _"${text}"_\n\n` +
+                            `¡Felicidades por su nacimiento hoy 30 de marzo! ✨`;
+            const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Animación de entrada al hacer scroll
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.photo-card').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
