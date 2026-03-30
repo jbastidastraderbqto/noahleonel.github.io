@@ -138,8 +138,8 @@
                     <span class="text-xs uppercase tracking-widest text-gray-500 font-semibold">Marzo 2026</span>
                 </div>
                 <div class="bg-white/70 backdrop-blur-md px-6 py-4 rounded-3xl shadow-xl border border-white">
-                    <span class="block text-3xl font-bold text-blue-600">30</span>
-                    <span class="text-xs uppercase tracking-widest text-gray-500 font-semibold">9:14 h</span>
+                    <span class="block text-3xl font-bold text-blue-600">9:14</span>
+                    <span class="text-xs uppercase tracking-widest text-gray-500 font-semibold">horas</span>
                 </div>
                 <div class="bg-white/70 backdrop-blur-md px-6 py-4 rounded-3xl shadow-xl border border-white">
                     <span class="block text-3xl font-bold text-blue-600">3.300</span>
@@ -360,11 +360,11 @@
             const name = document.getElementById('visitorName').value;
             const relation = document.getElementById('relation').value;
             const text = document.getElementById('visitorMessage').value;
-            const phone = "584245388701";
+            const phone = "584123477639";
             const message = `¡Hola familia de Noah Leonel! 👋\n\n` +
                             `Soy *${name}* ${relation ? '(' + relation + ')' : ''}.\n\n` +
                             `Mensaje para el bebé: _"${text}"_\n\n` +
-                            `¡Felicidades por su nacimiento hoy 30 de marzo! ✨`;
+                            `¡Felicidades por su nacimiento el30 de marzo! ✨`;
             const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         });
