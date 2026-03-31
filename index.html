@@ -163,51 +163,23 @@
      <!-- Sección de Video Personal -->
     <section class="py-24 px-4 bg-white relative overflow-hidden">
         <div class="max-w-4xl mx-auto text-center relative z-10">
-            <h3 class="text-5xl font-luxury text-blue-900 mb-4">Preparando mi llegada</h3>
-            <p class="text-gray-400 mb-12 uppercase tracking-widest text-xs">Video producido por Centro Médico Santa María</p>
+            <h3 class="text-5xl font-luxury text-blue-900 mb-4">Preparación a mi llegada</h3>
+            <p class="text-gray-400 mb-12 uppercase tracking-widest text-xs">Video grabado por Centro Médico Santa María</p>
             
-            <!-- Contenedor con Botón de Play -->
-            <div class="local-video-wrapper relative group cursor-pointer" onclick="playMainVideo(this)">
-                <!-- El Poster: Asegúrate de que esta imagen sea una foto linda de Noah -->
-                <video id="noahVideo" class="w-full h-full" poster="img/2.jpeg">
+            <div class="local-video-wrapper">
+                <video controls poster="img/2.jpeg">
                     <source src="img/v2.mp4" type="video/mp4">
                     Tu navegador no soporta videos integrados.
                 </video>
-
-                <!-- Capa superpuesta con el botón de Play -->
-                <div id="playBtnOverlay" class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all duration-300">
-                    <div class="w-20 h-20 md:w-28 md:h-28 bg-white/90 rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 md:w-12 md:h-12 text-blue-600 ml-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </div>
-                </div>
             </div>
             
             <div class="mt-12 inline-flex items-center gap-4 text-blue-400">
                 <span class="h-px w-12 bg-blue-100"></span>
-                <span class="font-luxury text-3xl text-blue-800">Inmortalizando momentos</span>
+                <span class="font-luxury text-3xl text-blue-800">Momentos para Siempre</span>
                 <span class="h-px w-12 bg-blue-100"></span>
             </div>
         </div>
     </section>
-
-    <!-- Añadir este script antes del cierre de </body> o en la sección de scripts -->
-    <script>
-        function playMainVideo(container) {
-            const video = document.getElementById('noahVideo');
-            const overlay = document.getElementById('playBtnOverlay');
-            
-            if (video.paused) {
-                video.play();
-                video.controls = true; // Mostramos los controles solo cuando ya empezó
-                overlay.style.display = 'none'; // Escondemos el botón de play
-            } else {
-                video.pause();
-                overlay.style.display = 'flex';
-            }
-        }
-    </script>
 
     
 
@@ -315,55 +287,27 @@
 
 
 
+
     <!-- Sección de Video Personal -->
     <section class="py-24 px-4 bg-white relative overflow-hidden">
         <div class="max-w-4xl mx-auto text-center relative z-10">
-            <h3 class="text-5xl font-luxury text-blue-900 mb-4">Una lloradita Pues....</h3>
+            <h3 class="text-5xl font-luxury text-blue-900 mb-4">una lloradita pués....</h3>
             <p class="text-gray-400 mb-12 uppercase tracking-widest text-xs">Video grabado por mi tio Joel</p>
             
-            <!-- Contenedor con Botón de Play -->
-            <div class="local-video-wrapper relative group cursor-pointer" onclick="playMainVideo(this)">
-                <!-- El Poster: Asegúrate de que esta imagen sea una foto linda de Noah -->
-                <video id="noahVideo" class="w-full h-full" poster="img/7.jpg">
+            <div class="local-video-wrapper">
+                <video controls poster="img/7.jpg">
                     <source src="img/WhatsApp Video 2026-03-30 at 2.05.22 PM.mp4" type="video/mp4">
                     Tu navegador no soporta videos integrados.
                 </video>
-
-                <!-- Capa superpuesta con el botón de Play -->
-                <div id="playBtnOverlay" class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all duration-300">
-                    <div class="w-20 h-20 md:w-28 md:h-28 bg-white/90 rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 md:w-12 md:h-12 text-blue-600 ml-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </div>
-                </div>
             </div>
             
             <div class="mt-12 inline-flex items-center gap-4 text-blue-400">
                 <span class="h-px w-12 bg-blue-100"></span>
-                <span class="font-luxury text-3xl text-blue-800">Inmortalizando momentos</span>
+                <span class="font-luxury text-3xl text-blue-800">Momentos para Siempre</span>
                 <span class="h-px w-12 bg-blue-100"></span>
             </div>
         </div>
     </section>
-
-    <!-- Añadir este script antes del cierre de </body> o en la sección de scripts -->
-    <script>
-        function playMainVideo(container) {
-            const video = document.getElementById('noahVideo');
-            const overlay = document.getElementById('playBtnOverlay');
-            
-            if (video.paused) {
-                video.play();
-                video.controls = true; // Mostramos los controles solo cuando ya empezó
-                overlay.style.display = 'none'; // Escondemos el botón de play
-            } else {
-                video.pause();
-                overlay.style.display = 'flex';
-            }
-        }
-    </script>
-
 
     <section class="py-24 px-4 max-w-6xl mx-auto">
         <div class="flex flex-col items-center mb-16">
